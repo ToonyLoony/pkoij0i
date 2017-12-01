@@ -1,0 +1,30 @@
+#include <iostream>
+#include <string>
+using namespace std;
+int main()
+{
+    string first_Word;           //two strings filled with user input
+    string second_Word ;
+    cout<<"please enter the first word"<<endl;
+    getline(cin,first_Word);
+    cout<<"please enter the second word"<<endl;
+    getline(cin,second_Word);
+
+    string combindString;       // hold the result of combined strings
+
+    int i = 0;
+    // keeps running until one of the strings has no words
+    while(i <first_Word.size() || i < second_Word.size()) // while loop and .size used due to not knowing exactly how long each string is
+        {
+            if( i < first_Word.size() && i < second_Word.size()) // when both condition are meet continue to add the words to string
+                combindString = combindString + first_Word[i]+second_Word[i];
+            else if(i >=first_Word.size())
+                combindString = combindString+ second_Word[i]; // if the word its currently on is greater >= than the size of firstword and the rest of secondword
+            else
+                combindString = combindString+first_Word[i]; // vice versa
+            i++;                                            // continue increment
+    }
+    cout<<"Here is your Result: "<<" "<<combindString;
+
+}
+
