@@ -1,0 +1,52 @@
+#include <iostream>
+#include <cmath>
+#include <math.h>
+using namespace std;
+//int newfunc(int fnum,int snum,int tnum);
+int main()
+{
+  int fNum, sNum, tNum;
+
+  int sum;
+  int result;
+  int changer;
+  long double  x,y,z;
+  cout << "Enter first positive  integer: ";
+  cin >> fNum;
+  cout << "Enter second positive  integer: ";   // user input is taken 3 times and held with 3 variables
+  cin >> sNum;
+  cout << "Enter third positive  integer: ";
+  cin >> tNum;
+
+changer = (fNum * 100) + (sNum *10) + tNum; // Here we make the user number equal to the hundreds , tens , single digit proportions
+
+    x = pow(fNum,3);
+    y = pow(sNum,3);   // each number is times to the power of 3 using pow from cmath import
+    z = pow(tNum,3);
+
+
+    cout << changer << endl;
+    sum = x + y + z + 1;
+
+
+
+    if(sum == changer ){
+    cout <<sum<<" is an Armstrong number."<<endl;    // if the overall sum is equal to when we added the numbers in changer it will print armstrong num
+    }
+
+
+else{
+    cout << sum<< " is not an Armstrong number."<<endl; // if its not equal to changer we know its not a armstrong number
+}
+
+  }
+
+
+
+
+
+
+
+
+
+
