@@ -1,111 +1,42 @@
+#include <iostream>
+/// store first index in 'start', store last index in 'end'
+using namespace std;
+int main()
+{
+int start,end_point,mid,user_num,feed_Back,player_input;
+start = 0;
+end_point = 19999;
+mid = 0;
+user_num = 0;
 
+bool found = false;
+cout<<" Please Enter a Number Between 1-20000"<<endl;
+cin>>user_num;
 
-    #include <iostream>  
-    using namespace std;  
-    class BinTreeNode {  
-    public:  
-        BinTreeNode(int value) {  
-            this->value = value;  
-            this->left = NULL;  
-            this->right = NULL;  
-        }  
-        int value;  
-        BinTreeNode* left;  
-        BinTreeNode* right;  
-      
-    };  
-      
-    BinTreeNode* MinimumValue(BinTreeNode* root)  
-    {  
-        while(root->left != NULL) root = root->left;  
-        return root;  
-    }  
-      
-    BinTreeNode* tree_insert(BinTreeNode* tree, int item) {  
-        if (tree == NULL)  
-            tree = new BinTreeNode(item);  
-        else  
-            if (item < tree->value)  
-                if (tree->left == NULL)  
-                    tree->left = new BinTreeNode(item);  
-                else  
-                    tree_insert(tree->left, item);  
-            else  
-                if (tree->right == NULL)  
-                    tree->right = new BinTreeNode(item);  
-                else  
-                    tree_insert(tree->right, item);  
-        return tree;  
-      
-    }  
-      
-    void postorder(BinTreeNode* tree) {  
-        if (tree->left != NULL)  
-            postorder(tree->left);  
-        if (tree->right != NULL)  
-            postorder(tree->right);  
-        std::cout << tree->value << std::endl;  
-      
-    }  
-      
-    void in_order(BinTreeNode* tree) {  
-        if (tree->left != NULL)  
-            in_order(tree->left);  
-        std::cout << tree->value << std::endl;  
-        if (tree->right != NULL)  
-            in_order(tree->right);  
-    }  
-      
-    struct BinTreeNode* Delete(struct BinTreeNode *root,int value){// function called delete that takes pointer to root node and data to be deleted as argument.;  
-        if(root == NULL) return root;  
-        else if(value < root ->value) root-> left = Delete(root->left,value);//if the data we are looking for is less than the data in root its in the left sub tree  
-        else if(value > root ->value) root->right = Delete(root->right,value);  
-      
-        else{  
-                // case1: No Child  
-            if(root->left == NULL && root-> right == NULL){  
-                delete root;  
-                root = NULL;  
-                return root;  
-            }  
-        //case 2: one child  
-        else if(root->left == NULL){  
-            struct BinTreeNode*temp = root;  
-            root = root->left;  
-            delete temp;  
-            return root;  
-            }  
-        else if(root->right==NULL){  
-            struct BinTreeNode*temp = root;  
-            root = root->left;  
-            delete temp;  
-            return root;  
-        }  
-        //case 3: 2 children  
-        else{  
-            struct BinTreeNode*temp = MinimumValue(root->right);  
-            root->value = temp->value;  
-            root->right = Delete(root->right,temp->value);  
-            return root;  
-            }  
-      
-        }  
-      
-      
-    }  
-      
-    int main(int argc, char *argv[])  
-    {  
-        BinTreeNode* root = NULL;  
-        BinTreeNode* t = tree_insert(0, 6);  
-        tree_insert(t, 10);  
-        tree_insert(t, 5);  
-        tree_insert(t, 2);  
-        tree_insert(t, 3);  
-        tree_insert(t, 4);  
-        tree_insert(t, 11);  
-        root = Delete(t,3);  
-        in_order(t);  
-        return 0;  
-    }  
+while(start <= end_point && !found){
+    mid = (start + end_point)/2;// find middle value to split array in two;
+    feed_Back = mid;
+    cout<<"Is this your number?"<<" "<<feed_Back<<endl;
+    cout<<"Press 1 if this number is correct \n"<<endl;
+    cout<<"Press 2 if your number is lower   \n"<<endl;
+    cout<<"Press 3 if your number is higher  \n"<<endl;
+    cin>>player_input;
 
+    if(player_input == 2){
+        (user_num<mid);
+        end_point = mid-1;  // the guess comes from mid, so just keep asking for that. apply a user condition in if statement
+    }
+    else if(player_input == 3){ //
+
+        (user_num>mid);
+        start = mid+1;
+    }
+    else{
+        cout<< "the number" <<" "<< user_num <<" "<<"was found" <<endl;
+        found = true;
+    }
+}
+if(!found){
+    cout<<"your number "<<" "<< user_num << "was not found" <<endl;
+}
+}
