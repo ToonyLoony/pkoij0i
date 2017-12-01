@@ -1,0 +1,28 @@
+1.	#include<iostream>  
+2.	#include<string>  
+3.	using namespace std;  
+4.	int main()  
+5.	{  
+6.	    int j,i; //there were no white spaces  
+7.	    string reverseString;  
+8.	  
+9.	    cout<<"Enter a string that you would like to be reversed in place"<<endl;  
+10.	  
+11.	    getline(cin,reverseString); // take user input hold it reversestring  
+12.	    int whiteSpace = 0;  
+13.	    i=0;  
+14.	    while(reverseString[i]!='\0') //  
+15.	    {  
+16.	        if(reverseString[i]== ' ') // if white space is found run code below   
+17.	        {  
+18.	            for(j=i;j>=lastWhiteSpace;j--)  //Loop hits the last word  and begins to decrements up to the word after the white space  
+19.	                cout<<reverseString[j];  
+20.	            cout<<" ";  
+21.	            lastWhiteSpace = i + 1; /  
+22.	        }  
+23.	        i++;  
+24.	    }  
+25.	    for(j=i-1;j>=lastWhiteSpace;j--){  
+26.	            cout<<reverseString[j];  
+27.	    }  
+28.	}  
