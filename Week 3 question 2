@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+int LinearSearchAlg (int MainArray[], int ElementPos,int target); // function prototyping
+int main()
+{
+    int DianaArray[6] = {3,5,7,1,2,9};
+    int target,result;
+    cout<<"please state the number you would like to find"<<endl;
+    cin>>target;                                                  // holds user input in target
+    result = LinearSearchAlg(DianaArray,5,target);     // hold the answer in result
+
+    if(result == -1){    // if the result is -1 from the recursion below , means no element is found
+        cout<<"Unfortunately that value was not found "<<endl;
+    }
+    else{
+        cout<<"Value was found at position"<<" "<<result<<endl; // if -1 is not found , it means the number must be found
+    }
+}
+
+
+int LinearSearchAlg(int MainArray[], int ElementPos,int target)
+{
+  if(MainArray[ElementPos] == target) // base case in instance where target is found.
+  {
+      return ElementPos;
+  }
+  if(ElementPos<0){ // Base for when value is not found.
+    return -1;
+}
+return LinearSearchAlg(MainArray,ElementPos-1,target); // calls function back but with element position -1 each time
+}
